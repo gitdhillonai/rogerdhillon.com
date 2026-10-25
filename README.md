@@ -21,3 +21,24 @@ npm ci
 npm run build
 npm run start
 ```
+
+## Analytics (GA4)
+
+Google Analytics 4 is loaded only when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set
+(for example `G-XXXXXXXXXX`). If the variable is unset or empty, the site ships
+with no analytics snippet.
+
+Set it on Vercel project **rogerdhillon-com** (team **dhillonrs**):
+
+1. Open [Project → Settings → Environment Variables](https://vercel.com/dhillonrs/rogerdhillon-com/settings/environment-variables).
+2. Add `NEXT_PUBLIC_GA_MEASUREMENT_ID` as a **Config** variable (it is public; do not mark it Secret).
+3. Scope it to Production (and Preview if you want analytics on PR deploys).
+4. Redeploy so the `NEXT_PUBLIC_` value is inlined at build time.
+
+CLI equivalent (paste the real measurement ID; do not commit it):
+
+```bash
+printf '%s' 'G-XXXXXXXXXX' | vercel env add NEXT_PUBLIC_GA_MEASUREMENT_ID production --type config
+```
+
+Locally, copy `.env.example` to `.env.local` and fill in the same key.
