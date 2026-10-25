@@ -1,32 +1,24 @@
-const year = new Date().getFullYear();
+import { JsonLd } from '@/components/JsonLd';
+import { faqPageJsonLd, graphJsonLd, profilePageJsonLd } from '@/lib/json-ld';
+import { pageMetadata } from '@/lib/metadata';
+import { defaultDescription, defaultTitle, faqs, person, products } from '@/lib/site';
+
+export const metadata = pageMetadata({
+  title: defaultTitle,
+  description: defaultDescription,
+  path: '/',
+  ogType: 'profile',
+});
 
 export default function HomePage() {
   return (
     <>
-      <a className="skip" href="#main">
-        Skip to content
-      </a>
-      <header className="top">
-        <div className="wrap top-inner">
-          <a className="brand" href="/">
-            Roger Dhillon
-          </a>
-          <nav aria-label="Primary">
-            <a href="#about">About</a>
-            <a href="#demos">Demos</a>
-            <a href="#contact">Contact</a>
-            <a
-              className="btn btn-sm"
-              href="https://calendly.com/rogerdhillon"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Book a meeting
-            </a>
-          </nav>
-        </div>
-      </header>
-
+      <JsonLd
+        data={graphJsonLd([
+          profilePageJsonLd('/', defaultTitle, defaultDescription),
+          faqPageJsonLd(),
+        ])}
+      />
       <main id="main">
         <section className="hero wrap">
           <p className="eyebrow">Open to Director+ / VP / Head of roles</p>
@@ -39,7 +31,7 @@ export default function HomePage() {
           <div className="cta-row" id="contact">
             <a
               className="btn btn-primary"
-              href="https://calendly.com/rogerdhillon"
+              href={person.calendly}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -47,20 +39,20 @@ export default function HomePage() {
             </a>
             <a
               className="btn btn-secondary"
-              href="https://www.linkedin.com/in/rogerdhillon"
+              href={person.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
               LinkedIn
             </a>
-            <a className="btn btn-secondary" href="/Roger-Dhillon-Resume.pdf">
+            <a className="btn btn-secondary" href={person.resumePath}>
               Download resume
             </a>
           </div>
           <p className="contact-line">
-            <a href="mailto:rogerdhillonjobs@gmail.com">rogerdhillonjobs@gmail.com</a>
+            <a href={`mailto:${person.email}`}>{person.email}</a>
             <span aria-hidden="true"> · </span>
-            <a href="tel:+13072228456">+1 307-222-8456</a>
+            <a href={`tel:${person.phoneTel}`}>{person.phoneDisplay}</a>
           </p>
         </section>
 
@@ -75,14 +67,19 @@ export default function HomePage() {
           </p>
           <p>
             Side products I ship with AI coding agents:{' '}
-            <a href="https://shipreadymetrics.com" target="_blank" rel="noopener noreferrer">
+            <a href={products.shipready.href} target="_blank" rel="noopener noreferrer">
               ShipReady Metrics
             </a>{' '}
             (AI readiness, governance, and technology-risk scoring) and{' '}
-            <a href="https://scm.cc" target="_blank" rel="noopener noreferrer">
+            <a href={products.scm.href} target="_blank" rel="noopener noreferrer">
               scm.cc
             </a>{' '}
             (FedRAMP continuous-monitoring operations).
+          </p>
+          <p>
+            For role history, publications, and the Platform / AIOps / FedRAMP /
+            LLMOps brief, see{' '}
+            <a href="/experience">experience</a>.
           </p>
           <ul className="focus">
             <li>AI Platform / LLMOps / Agentic production systems</li>
@@ -107,7 +104,7 @@ export default function HomePage() {
               </p>
               <p className="meta">
                 Recording ~3:46 · Live demo:{' '}
-                <a href="https://app.scm.cc/demo" target="_blank" rel="noopener noreferrer">
+                <a href={products.scm.demo} target="_blank" rel="noopener noreferrer">
                   app.scm.cc/demo
                 </a>
               </p>
@@ -118,6 +115,8 @@ export default function HomePage() {
                 playsInline
                 preload="metadata"
                 poster="/demos/scm-thumb.png"
+                width={1280}
+                height={720}
                 aria-label="scm.cc FedRAMP readiness demo recording"
               >
                 <source src="/demos/scm-fedramp-demo.mp4" type="video/mp4" />
@@ -134,19 +133,11 @@ export default function HomePage() {
               </p>
               <p className="meta">
                 <strong>Recording TBD</strong> (tracked as #1345) · Interactive demo:{' '}
-                <a
-                  href="https://shipreadymetrics.com/demo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={products.shipready.demo} target="_blank" rel="noopener noreferrer">
                   shipreadymetrics.com/demo
                 </a>
                 {' · '}
-                <a
-                  href="https://shipreadymetrics.com/what-we-measure"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={products.shipready.measure} target="_blank" rel="noopener noreferrer">
                   What we measure
                 </a>
               </p>
@@ -160,7 +151,7 @@ export default function HomePage() {
                 <span>Recording TBD</span>
                 <a
                   className="btn btn-sm"
-                  href="https://shipreadymetrics.com/demo"
+                  href={products.shipready.demo}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -171,12 +162,22 @@ export default function HomePage() {
           </article>
         </section>
 
+        <section className="about wrap" id="faq">
+          <h2>Questions recruiters ask</h2>
+          {faqs.map((faq) => (
+            <div className="faq-item" key={faq.question}>
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </div>
+          ))}
+        </section>
+
         <section className="close wrap">
           <h2>Let&apos;s talk</h2>
           <p>Prefer a calendar hold over email ping-pong.</p>
           <a
             className="btn btn-primary"
-            href="https://calendly.com/rogerdhillon"
+            href={person.calendly}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -184,27 +185,6 @@ export default function HomePage() {
           </a>
         </section>
       </main>
-
-      <footer className="foot">
-        <div className="wrap foot-inner">
-          <span>© {year} Roger Dhillon</span>
-          <span>
-            <a href="https://calendly.com/rogerdhillon" target="_blank" rel="noopener noreferrer">
-              Calendly
-            </a>
-            {' · '}
-            <a
-              href="https://www.linkedin.com/in/rogerdhillon"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
-            {' · '}
-            <a href="/Roger-Dhillon-Resume.pdf">Resume</a>
-          </span>
-        </div>
-      </footer>
     </>
   );
 }

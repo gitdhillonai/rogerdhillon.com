@@ -72,6 +72,15 @@ h1 { margin: 0; font-size: clamp(2.2rem, 5vw, 3.2rem); letter-spacing: -.02em; }
 }
 .btn-secondary:hover { border-color: #4a628f; color: #fff; }
 .about, .demos, .close { padding: 2.25rem 0; border-top: 1px solid var(--line); }
+.page-hero { padding: 4.5rem 0 1.5rem; }
+.page-hero .lede { max-width: 62ch; }
+.role { margin: 0 0 1.35rem; }
+.role h3 { margin: 0 0 .25rem; font-size: 1.08rem; }
+.role .meta { margin: 0 0 .5rem; color: var(--muted); font-size: .92rem; }
+.role p { color: var(--muted); max-width: 65ch; }
+.faq-item { margin: 0 0 1.15rem; }
+.faq-item h3 { margin: 0 0 .35rem; font-size: 1.05rem; }
+.faq-item p { margin: 0; color: var(--muted); max-width: 65ch; }
 h2 { margin: 0 0 1rem; font-size: 1.45rem; letter-spacing: -.01em; }
 .about p { color: var(--muted); max-width: 65ch; }
 .focus {
