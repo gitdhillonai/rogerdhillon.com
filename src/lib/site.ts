@@ -9,6 +9,7 @@ export const person = {
   linkedin: 'https://www.linkedin.com/in/rogerdhillon',
   calendly: 'https://calendly.com/rogerdhillon',
   resumePath: '/Roger-Dhillon-Resume.pdf',
+  vcardPath: '/roger-dhillon.vcf',
 } as const;
 
 export const products = {
