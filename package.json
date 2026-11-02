@@ -12,8 +12,8 @@
     "smoke": "node scripts/http-smoke.cjs \"${SMOKE_BASE_URL:-http://localhost:${PORT:-3000}}\" smoke.checks.json"
   },
   "dependencies": {
-    "@next/third-parties": "^15.5.4",
-    "next": "^15.5.4",
+    "@next/third-parties": "^16.4.3",
+    "next": "^16.4.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
