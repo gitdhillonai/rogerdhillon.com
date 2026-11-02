@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import path from 'path';
+import { cspHeaders } from './src/lib/csp';
 import { securityHeaders } from './src/lib/security-headers';
 
 const nextConfig: NextConfig = {
@@ -12,7 +13,7 @@ const nextConfig: NextConfig = {
   // domain setting (owner/console item); this guarantees apex-canonical behaviour
   // even if the app receives a www host.
   async headers() {
-    return [{ source: '/:path*', headers: securityHeaders }];
+    return [{ source: '/:path*', headers: [...securityHeaders, ...cspHeaders] }];
   },
   async redirects() {
     return [

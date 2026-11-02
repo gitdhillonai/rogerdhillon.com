@@ -27,9 +27,15 @@ llms.txt, IndexNow key, www→apex redirect, production-only GA4 gate.
 - [x] **S8 Smoke test.** `npm run smoke` (fetch-based, `smoke.checks.json`) against `next start`
   in CI: public pages, robots, sitemap, llms.txt, OG image, resume, vCard, 404, www→apex.
   Skill: `quality/smoke-tests` (`scripts/http-smoke.js`).
-- [ ] **S9 Content-Security-Policy.** Report-Only static policy (self + googletagmanager/GA
-  origins), then enforce. Skill: `platform/csp-policy-management` (static variant).
-- [ ] **S10 Accessibility pass.** Contrast check of `--muted` on the background, visible focus
-  ring on `.btn`, `prefers-reduced-motion`. Skill: `design:accessibility-review`.
+- [x] **S9a CSP Report-Only.** Static policy in `src/lib/csp.ts` (self + GA origins, `object-src
+  'none'`, `frame-ancestors 'none'`, `base-uri`/`form-action` self) sent as Report-Only; violations
+  are logged by `/api/csp-report`. Skill: `platform/csp-policy-management` (static variant).
+- [ ] **S9b Enforce CSP.** After a week of quiet `csp-violation` lines in Vercel runtime logs,
+  change `Content-Security-Policy-Report-Only` to `Content-Security-Policy` in `src/lib/csp.ts`.
+  Moving off `'unsafe-inline'` scripts needs nonces, which means dynamic rendering. That is a
+  separate trade-off.
+- [x] **S10 Accessibility pass.** Contrast gate test over `:root` tokens (skip link fixed:
+  3.2:1 → 6.1:1), `:focus-visible` ring, `prefers-reduced-motion`. Skills: `ui/design-system-tokens`
+  (contrast gate), `quality/web-accessibility-audit`.
 - [ ] **S11 Speaking / writing section.** Optional section listing talks and posts, data-driven
   from `site.ts`. Owner supplies the content.
