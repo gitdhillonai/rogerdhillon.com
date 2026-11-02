@@ -24,9 +24,9 @@ llms.txt, IndexNow key, www→apex redirect, production-only GA4 gate.
   `CreativeWork` JSON-LD. Copy needs Rajvir's facts; no invented metrics.
 - [x] **S7 vCard download.** `/roger-dhillon.vcf` route handler built from `person` in
   `src/lib/site.ts`, linked from the contact row. Skill: `platform/vcard-contact-export`.
-- [ ] **S8 Header/footer smoke test.** Playwright (or `next start` + fetch) smoke test: every
-  `publicPages` URL returns 200 and has a canonical link, an h1 and the Calendly CTA.
-  Skill: `quality/playwright-regression`.
+- [x] **S8 Smoke test.** `npm run smoke` (fetch-based, `smoke.checks.json`) against `next start`
+  in CI: public pages, robots, sitemap, llms.txt, OG image, resume, vCard, 404, www→apex.
+  Skill: `quality/smoke-tests` (`scripts/http-smoke.js`).
 - [ ] **S9 Content-Security-Policy.** Report-Only static policy (self + googletagmanager/GA
   origins), then enforce. Skill: `platform/csp-policy-management` (static variant).
 - [ ] **S10 Accessibility pass.** Contrast check of `--muted` on the background, visible focus

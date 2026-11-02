@@ -1,0 +1,15 @@
+[
+  {
+    "path": "/",
+    "contains": ["<h1", "rel=\"canonical\" href=\"https://rogerdhillon.com\"", "calendly.com/rogerdhillon", "application/ld+json"],
+    "headers": { "x-content-type-options": "nosniff", "strict-transport-security": "max-age=", "x-frame-options": "DENY" }
+  },
+  { "path": "/experience", "contains": ["<h1", "rel=\"canonical\" href=\"https://rogerdhillon.com/experience\""] },
+  { "path": "/robots.txt", "contains": ["Sitemap: https://rogerdhillon.com/sitemap.xml"] },
+  { "path": "/sitemap.xml", "contains": ["https://rogerdhillon.com/experience"] },
+  { "path": "/llms.txt", "contains": ["Roger Dhillon"] },
+  { "path": "/opengraph-image", "headers": { "content-type": "image/png" } },
+  { "path": "/Roger-Dhillon-Resume.pdf", "headers": { "content-type": "application/pdf" } },
+  { "path": "/roger-dhillon.vcf", "contains": ["BEGIN:VCARD"], "headers": { "content-type": "text/vcard" } },
+  { "path": "/this-route-does-not-exist", "status": 404, "contains": ["Page not found", "noindex"] }
+]
