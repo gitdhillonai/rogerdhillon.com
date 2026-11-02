@@ -53,6 +53,10 @@ export default function HomePage() {
             <a href={`mailto:${person.email}`}>{person.email}</a>
             <span aria-hidden="true"> · </span>
             <a href={`tel:${person.phoneTel}`}>{person.phoneDisplay}</a>
+            <span aria-hidden="true"> · </span>
+            <a href={person.vcardPath} download>
+              Save contact
+            </a>
           </p>
         </section>
 

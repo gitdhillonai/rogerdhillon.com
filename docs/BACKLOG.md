@@ -22,8 +22,8 @@ llms.txt, IndexNow key, www→apex redirect, production-only GA4 gate.
 - [ ] **S6 Case studies.** `/work` index plus 2–3 case-study pages (problem → approach →
   measurable outcome) for scm.cc and ShipReady Metrics. Add them to `publicPages`/sitemap, with
   `CreativeWork` JSON-LD. Copy needs Rajvir's facts; no invented metrics.
-- [ ] **S7 vCard download.** `/roger-dhillon.vcf` route handler built from `person` in
-  `src/lib/site.ts`, linked from the contact row.
+- [x] **S7 vCard download.** `/roger-dhillon.vcf` route handler built from `person` in
+  `src/lib/site.ts`, linked from the contact row. Skill: `platform/vcard-contact-export`.
 - [ ] **S8 Header/footer smoke test.** Playwright (or `next start` + fetch) smoke test: every
   `publicPages` URL returns 200 and has a canonical link, an h1 and the Calendly CTA.
   Skill: `quality/playwright-regression`.
