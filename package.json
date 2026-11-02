@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "node --test --experimental-strip-types 'src/**/*.test.ts'"
+    "test": "node --test --experimental-strip-types 'src/**/*.test.ts'",
+    "smoke": "node scripts/http-smoke.cjs \"${SMOKE_BASE_URL:-http://localhost:${PORT:-3000}}\" smoke.checks.json"
   },
   "dependencies": {
     "@next/third-parties": "^15.5.4",
