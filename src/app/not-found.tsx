@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { person } from '@/lib/site';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Page not found — Roger Dhillon',
@@ -14,12 +15,12 @@ export default function NotFound() {
         <h1>Page not found</h1>
         <p className="lede">That page doesn&apos;t exist. Try one of these instead.</p>
         <div className="cta-row">
-          <a className="btn btn-primary" href="/">
+          <Link className="btn btn-primary" href="/">
             Home
-          </a>
-          <a className="btn btn-secondary" href="/experience">
+          </Link>
+          <Link className="btn btn-secondary" href="/experience">
             Experience
-          </a>
+          </Link>
           <a className="btn btn-secondary" href={person.resumePath}>
             Resume (PDF)
           </a>

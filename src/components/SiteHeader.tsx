@@ -1,17 +1,18 @@
 import { person } from '@/lib/site';
+import Link from 'next/link';
 
 export function SiteHeader() {
   return (
     <header className="top">
       <div className="wrap top-inner">
-        <a className="brand" href="/">
+        <Link className="brand" href="/">
           Roger Dhillon
-        </a>
+        </Link>
         <nav aria-label="Primary">
-          <a href="/#about">About</a>
-          <a href="/experience">Experience</a>
-          <a href="/#demos">Demos</a>
-          <a href="/#contact">Contact</a>
+          <Link href="/#about">About</Link>
+          <Link href="/experience">Experience</Link>
+          <Link href="/#demos">Demos</Link>
+          <Link href="/#contact">Contact</Link>
           <a className="btn btn-sm" href={person.calendly} target="_blank" rel="noopener noreferrer">
             Book a meeting
           </a>

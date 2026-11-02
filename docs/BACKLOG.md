@@ -18,7 +18,7 @@ llms.txt, IndexNow key, www→apex redirect, production-only GA4 gate.
 - [x] **S3 Test script.** `npm test` runs `node:test` unit tests for `src/lib` (no new deps).
 - [x] **S4 CI.** GitHub Actions workflow on PRs: `tsc --noEmit`, `npm test`, `next build`.
   Branch protection stays an owner decision.
-- [ ] **S5 Lint.** ESLint flat config (`eslint-config-next`); wire `npm run lint` into CI.
+- [x] **S5 Lint.** ESLint flat config (`eslint-config-next`); wire `npm run lint` into CI.
 - [ ] **S6 Case studies.** `/work` index plus 2–3 case-study pages (problem → approach →
   measurable outcome) for scm.cc and ShipReady Metrics. Add them to `publicPages`/sitemap, with
   `CreativeWork` JSON-LD. Copy needs Rajvir's facts; no invented metrics.

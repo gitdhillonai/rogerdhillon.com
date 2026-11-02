@@ -2,6 +2,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { graphJsonLd, profilePageJsonLd } from '@/lib/json-ld';
 import { pageMetadata } from '@/lib/metadata';
 import { person, products, publicPages } from '@/lib/site';
+import Link from 'next/link';
 
 const page = publicPages.find((entry) => entry.path === '/experience')!;
 
@@ -23,7 +24,7 @@ export default function ExperiencePage() {
           <p className="lede">
             Open to Director+, VP, and Head of Technology, Platform, AIOps, FedRAMP,
             and LLMOps roles. This page extends the{' '}
-            <a href="/">homepage</a> with role history from the public{' '}
+            <Link href="/">homepage</Link> with role history from the public{' '}
             <a href={person.resumePath}>resume</a>—not a second copy of the hero.
           </p>
           <div className="cta-row">
@@ -92,7 +93,7 @@ export default function ExperiencePage() {
           <p>
             These are the job-hunt angles this site is meant to be found for.
             They describe work already on the resume and in the{' '}
-            <a href="/#demos">product demos</a>, not new employers or awards.
+            <Link href="/#demos">product demos</Link>, not new employers or awards.
           </p>
           <article className="role">
             <h3>Platform engineering</h3>

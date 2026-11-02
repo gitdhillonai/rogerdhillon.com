@@ -2,6 +2,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { faqPageJsonLd, graphJsonLd, profilePageJsonLd } from '@/lib/json-ld';
 import { pageMetadata } from '@/lib/metadata';
 import { defaultDescription, defaultTitle, faqs, person, products } from '@/lib/site';
+import Link from 'next/link';
 
 export const metadata = pageMetadata({
   title: defaultTitle,
@@ -83,7 +84,7 @@ export default function HomePage() {
           <p>
             For role history, publications, and the Platform / AIOps / FedRAMP /
             LLMOps brief, see{' '}
-            <a href="/experience">experience</a>.
+            <Link href="/experience">experience</Link>.
           </p>
           <ul className="focus">
             <li>AI Platform / LLMOps / Agentic production systems</li>
