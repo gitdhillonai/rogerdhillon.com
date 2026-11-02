@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { securityHeaders } from './src/lib/security-headers';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -11,6 +12,9 @@ const nextConfig: NextConfig = {
   // redirect, preserving the path. The authoritative www redirect is the Vercel
   // domain setting (owner/console item); this guarantees apex-canonical behaviour
   // even if the app receives a www host.
+  async headers() {
+    return [{ source: '/:path*', headers: securityHeaders }];
+  },
   async redirects() {
     return [
       {
