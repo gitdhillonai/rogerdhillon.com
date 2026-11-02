@@ -34,6 +34,8 @@ llms.txt, IndexNow key, www→apex redirect, production-only GA4 gate.
   change `Content-Security-Policy-Report-Only` to `Content-Security-Policy` in `src/lib/csp.ts`.
   Moving off `'unsafe-inline'` scripts needs nonces, which means dynamic rendering. That is a
   separate trade-off.
-
+- [x] **S10 Accessibility pass.** Contrast gate test over `:root` tokens (skip link fixed:
+  3.2:1 → 6.1:1), `:focus-visible` ring, `prefers-reduced-motion`. Skills: `ui/design-system-tokens`
+  (contrast gate), `quality/web-accessibility-audit`.
 - [ ] **S11 Speaking / writing section.** Optional section listing talks and posts, data-driven
   from `site.ts`. Owner supplies the content.
