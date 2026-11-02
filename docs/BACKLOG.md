@@ -16,7 +16,7 @@ llms.txt, IndexNow key, www→apex redirect, production-only GA4 gate.
 - [x] **S2 Branded 404.** `not-found.tsx` with the site chrome, links back to home, experience,
   and resume, plus `noindex`.
 - [x] **S3 Test script.** `npm test` runs `node:test` unit tests for `src/lib` (no new deps).
-- [ ] **S4 CI.** GitHub Actions workflow on PRs: `tsc --noEmit`, `npm test`, `next build`.
+- [x] **S4 CI.** GitHub Actions workflow on PRs: `tsc --noEmit`, `npm test`, `next build`.
   Branch protection stays an owner decision.
 - [ ] **S5 Lint.** ESLint flat config (`eslint-config-next`); wire `npm run lint` into CI.
 - [ ] **S6 Case studies.** `/work` index plus 2–3 case-study pages (problem → approach →
