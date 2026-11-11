@@ -6,3 +6,10 @@ out
 !.env.example
 *.log
 tsconfig.tsbuildinfo
+
+# workspace hygiene (sync-workspace)
+dist/
+build/
+__pycache__/
+*.pyc
+.claude/worktrees/
